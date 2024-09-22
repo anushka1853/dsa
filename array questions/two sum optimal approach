@@ -1,0 +1,58 @@
+- two sum optimal approach using vector of pairs of int
+
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+
+        int n = nums.size();
+
+        vector<pair<int, int>> v;
+
+        // first : element
+        // second : its index
+
+        for (size_t i = 0; i < n; i++)
+        {
+            v.push_back(make_pair(nums[i], i));
+        }
+
+        // sort v itself bc since you've made pairs toh index will be with the elements only as the second
+        // pair so just sort v itself
+
+        sort(v.begin(), v.end());
+
+        vector<int> ans;
+
+        int i = 0;
+        int j = n - 1;
+
+        while (i < j)
+        {
+            int sum = v[i].first + v[j].first;
+
+            if (sum == target)
+            {
+
+                ans.push_back(v[i].second);
+                ans.push_back(v[j].second);
+                break;
+                
+            }
+
+            else if (sum < target)
+            {
+                i++;
+            }
+
+            else if (sum > target)
+            {
+
+                j--;
+            }
+        }
+
+        return ans;
+
+        
+    }
+};
