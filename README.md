@@ -1,2 +1,2 @@
 # dsa
-repo for uploading dsa questions 
+repo for dsa questions as i solve them alongside watching lectures 
